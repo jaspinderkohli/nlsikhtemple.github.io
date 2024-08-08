@@ -27,13 +27,20 @@
             color: white;
             text-decoration: none;
             padding: 10px 20px;
+            cursor: pointer;
         }
         nav a:hover {
             background-color: #2c3e50;
         }
         .content {
+            display: none;
             padding: 20px;
             text-align: center;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
         }
         footer {
             background-color: #2c3e50;
@@ -45,33 +52,55 @@
             bottom: 0;
         }
     </style>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.content');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+        window.onload = function() {
+            showSection('home');
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Welcome to the Newfoundland Sikh Temple</h1>
     </header>
     <nav>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#events">Events</a>
-        <a href="#contact">Contact Us</a>
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('about')">About Us</a>
+        <a onclick="showSection('services')">Services</a>
+        <a onclick="showSection('events')">Events</a>
+        <a onclick="showSection('contact')">Contact Us</a>
     </nav>
+    <div class="content" id="home">
+        <h2>Welcome to Newfoundland Sikh Temple</h2>
+        <p>Nfld Gurudwara Sahib was established by a handful of families in 2005 with the aim to contribute towards the community and promote the teachings of Sikhism.</p>
+        <img src="https://example.com/temple.jpg" alt="Sikh Temple">
+    </div>
     <div class="content" id="about">
         <h2>About Us</h2>
-        <p>Welcome to the Newfoundland Sikh Temple. We are dedicated to serving the community and promoting the teachings of Sikhism in Newfoundland.</p>
+        <p>Nfld Gurudwara Sahib was established by a handful of families in 2005 with the aim to contribute towards the community and promote the teachings of Sikhism.</p>
+        <img src="https://example.com/about.jpg" alt="About Us">
     </div>
     <div class="content" id="services">
         <h2>Services</h2>
         <p>We offer daily prayers, community services, and educational programs for all ages. Our goal is to foster a sense of unity and spiritual growth within the community.</p>
+        <img src="https://example.com/services.jpg" alt="Services">
     </div>
     <div class="content" id="events">
         <h2>Events</h2>
         <p>Join us for our upcoming events and celebrations. Stay tuned for more details about our festivals, community gatherings, and special ceremonies.</p>
+        <img src="https://example.com/events.jpg" alt="Events">
     </div>
     <div class="content" id="contact">
         <h2>Contact Us</h2>
-        <p>Email: info@newfoundlandsikhtemple.com | Phone: 123-456-7890</p>
-        <p>Address: 123 Temple Street, St. John's, NL, Canada</p>
+        <p>Email: nfss.gurdwara@gmail.com | Phone: (709) 754-7454</p>
+        <p>Address: 680 Logy Bay Rd, St. John's, Newfoundland and Labrador, NL, Canada</p>
+        <img src="https://example.com/contact.jpg" alt="Contact Us">
     </div>
     <footer>
         <p>&copy; 2024 Newfoundland Sikh Temple. All rights reserved.</p>
