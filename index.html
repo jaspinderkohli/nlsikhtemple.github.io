@@ -4,129 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newfoundland Sikh Temple</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f3f3f3;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1px 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #34495e;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-        }
-        nav a:hover {
-            background-color: #2c3e50;
-        }
-        nav .menu {
-            display: none;
-        }
-        .menu-btn {
-            display: none;
-            background-color: #34495e;
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            transition: background-color 0.3s ease;
-        }
-        .menu-btn:hover {
-            background-color: #2c3e50;
-        }
-        .content {
-            display: none;
-            padding: 20px;
-        }
-        .section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            flex-wrap: wrap;
-        }
-        .section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .section div {
-            max-width: 100%;
-            padding: 0 20px;
-        }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        .home-content {
-            display: block;
-        }
-        @media (min-width: 768px) {
-            .menu-btn {
-                display: none;
-            }
-            nav .menu {
-                display: flex;
-                justify-content: center;
-            }
-            .section {
-                flex-wrap: nowrap;
-            }
-            .section img {
-                max-width: 45%;
-                margin-bottom: 0;
-            }
-            .section div {
-                max-width: 50%;
-            }
-        }
-        @media (max-width: 767px) {
-            .menu-btn {
-                display: block;
-            }
-            nav .menu {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-            }
-            nav .menu a {
-                display: block;
-                text-align: center;
-                padding: 15px 0;
-                border-bottom: 1px solid #2c3e50;
-            }
-            header {
-                padding: 10px 0;
-            }
-            footer {
-                padding: 5px 0;
-            }
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script>
         function showSection(sectionId) {
             var sections = document.querySelectorAll('.content');
@@ -137,10 +15,10 @@
         }
         function toggleMenu() {
             var menu = document.querySelector('nav .menu');
-            if (menu.style.display === 'block') {
-                menu.style.display = 'none';
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
             } else {
-                menu.style.display = 'block';
+                menu.classList.add('hidden');
             }
         }
         window.onload = function() {
@@ -148,47 +26,49 @@
         }
     </script>
 </head>
-<body>
-    <header>
-        <h1>Welcome to the Newfoundland Sikh Temple</h1>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-800 text-white p-4 text-center">
+        <h1 class="text-xl md:text-3xl">Welcome to the Newfoundland Sikh Temple</h1>
     </header>
-    <nav>
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-        <div class="menu">
-            <a onclick="showSection('home')">Home</a>
-            <a onclick="showSection('about')">About Us</a>
-            <a onclick="showSection('services')">Services</a>
-            <a onclick="showSection('events')">Events</a>
-            <a onclick="showSection('contact')">Contact Us</a>
+    <nav class="bg-blue-700 text-white p-2 md:p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <button class="menu-btn md:hidden" onclick="toggleMenu()">☰</button>
+            <div class="menu hidden md:flex space-x-4">
+                <a class="block md:inline-block p-2 hover:bg-blue-800 cursor-pointer" onclick="showSection('home')">Home</a>
+                <a class="block md:inline-block p-2 hover:bg-blue-800 cursor-pointer" onclick="showSection('about')">About Us</a>
+                <a class="block md:inline-block p-2 hover:bg-blue-800 cursor-pointer" onclick="showSection('services')">Services</a>
+                <a class="block md:inline-block p-2 hover:bg-blue-800 cursor-pointer" onclick="showSection('events')">Events</a>
+                <a class="block md:inline-block p-2 hover:bg-blue-800 cursor-pointer" onclick="showSection('contact')">Contact Us</a>
+            </div>
         </div>
     </nav>
     <div class="content home-content" id="home">
-        <div class="section">
-            <img src="https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/307209612_391622399826119_3746302266067689099_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=JB00AeqTlX0Q7kNvgF2_ruD&_nc_ht=scontent-lga3-2.xx&oh=00_AYC7GPO-bVZgDAl1E_6NyRp5S5XIGKXD4JFG5F0LALWXsw&oe=66BAE253" alt="Sikh Temple">
-            <div>
-                <h2>Welcome to Newfoundland Sikh Temple</h2>
-                <p>Nfld Gurudwara Sahib was established by a handful of families in 2005 with the aim to contribute towards the community and promote the teachings of Sikhism.</p>
+        <div class="container mx-auto flex flex-wrap md:flex-nowrap bg-white shadow-md rounded-lg p-4 my-4">
+            <img class="w-full md:w-1/2 rounded-lg" src="https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/307209612_391622399826119_3746302266067689099_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=JB00AeqTlX0Q7kNvgF2_ruD&_nc_ht=scontent-lga3-2.xx&oh=00_AYC7GPO-bVZgDAl1E_6NyRp5S5XIGKXD4JFG5F0LALWXsw&oe=66BAE253" alt="Sikh Temple">
+            <div class="w-full md:w-1/2 p-4">
+                <h2 class="text-2xl font-bold mb-4">Welcome to Newfoundland Sikh Temple</h2>
+                <p class="mb-4">Nfld Gurudwara Sahib was established by a handful of families in 2005 with the aim to contribute towards the community and promote the teachings of Sikhism.</p>
                 <p>Sikhism is a monotheistic religion founded in the Punjab region of India in the 15th century by Guru Nanak Dev Ji. It emphasizes equality, selfless service, and devotion to God.</p>
             </div>
         </div>
     </div>
     <div class="content" id="about">
-        <div class="section">
-            <img src="https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/174062267_2960061127610667_6175586575874149828_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=YJbdmHaTGQ4Q7kNvgFAL5rU&_nc_ht=scontent-lga3-2.xx&oh=00_AYCqStov9r6PiQYkUJKc7kb0a2AqOPxAYOUqjYL5_d1atA&oe=66DC6CAF" alt="About Us">
-            <div>
-                <h2>About Us</h2>
-                <p>Nfld Gurudwara Sahib was established by a handful of families in 2005 with the aim to contribute towards the community and promote the teachings of Sikhism.</p>
+        <div class="container mx-auto flex flex-wrap md:flex-nowrap bg-white shadow-md rounded-lg p-4 my-4">
+            <img class="w-full md:w-1/2 rounded-lg" src="https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/174062267_2960061127610667_6175586575874149828_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=YJbdmHaTGQ4Q7kNvgFAL5rU&_nc_ht=scontent-lga3-2.xx&oh=00_AYCqStov9r6PiQYkUJKc7kb0a2AqOPxAYOUqjYL5_d1atA&oe=66DC6CAF" alt="About Us">
+            <div class="w-full md:w-1/2 p-4">
+                <h2 class="text-2xl font-bold mb-4">About Us</h2>
+                <p class="mb-4">Nfld Gurudwara Sahib was established by a handful of families in 2005 with the aim to contribute towards the community and promote the teachings of Sikhism.</p>
                 <p>We are dedicated to serving the community and promoting the teachings of Sikhism. Our temple offers a welcoming environment for all to learn, worship, and grow together.</p>
             </div>
         </div>
     </div>
     <div class="content" id="services">
-        <div class="section">
-            <img src="https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/174175553_2959925844290862_4367664182309973365_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=W0PQSSpIy54Q7kNvgEHDLSD&_nc_ht=scontent-lga3-2.xx&oh=00_AYCkTd5H3yRKJnOAp2i3RVgRs1ZnmYDavgCu7nJsOs5zjA&oe=66DC853E" alt="Services">
-            <div>
-                <h2>Services</h2>
-                <p>We offer daily prayers, community services, and educational programs for all ages. Our goal is to foster a sense of unity and spiritual growth within the community.</p>
-                <ul>
+        <div class="container mx-auto flex flex-wrap md:flex-nowrap bg-white shadow-md rounded-lg p-4 my-4">
+            <img class="w-full md:w-1/2 rounded-lg" src="https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/174175553_2959925844290862_4367664182309973365_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=W0PQSSpIy54Q7kNvgEHDLSD&_nc_ht=scontent-lga3-2.xx&oh=00_AYCkTd5H3yRKJnOAp2i3RVgRs1ZnmYDavgCu7nJsOs5zjA&oe=66DC853E" alt="Services">
+            <div class="w-full md:w-1/2 p-4">
+                <h2 class="text-2xl font-bold mb-4">Services</h2>
+                <p class="mb-4">We offer daily prayers, community services, and educational programs for all ages. Our goal is to foster a sense of unity and spiritual growth within the community.</p>
+                <ul class="list-disc list-inside">
                     <li>Daily prayers and worship</li>
                     <li>Community kitchen (Langar)</li>
                     <li>Educational programs and classes</li>
@@ -198,25 +78,26 @@
         </div>
     </div>
     <div class="content" id="events">
-        <div class="section">
-            <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.6435-9/172631219_2959926390957474_8626176355680742492_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=13d280&_nc_ohc=mApjFJSHYWMQ7kNvgHD6Y85&_nc_ht=scontent-lga3-1.xx&oh=00_AYBX4giL8n7GLdpAyiHyPIClSPnkf9pZdx_XeiK7BooLMw&oe=66DC67EE" alt="Events">
-            <div>
-                <h2>Events</h2>
+        <div class="container mx-auto flex flex-wrap md:flex-nowrap bg-white shadow-md rounded-lg p-4 my-4">
+            <img class="w-full md:w-1/2 rounded-lg" src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.6435-9/172631219_2959926390957474_8626176355680742492_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=13d280&_nc_ohc=mApjFJSHYWMQ7kNvgHD6Y85&_nc_ht=scontent-lga3-1.xx&oh=00_AYBX4giL8n7GLdpAyiHyPIClSPnkf9pZdx_XeiK7BooLMw&oe=66DC67EE" alt="Events">
+            <div class="w-full md:w-1/2 p-4">
+                <h2 class="text-2xl font-bold mb-4">Events</h2>
                 <p>Join us for our upcoming events and celebrations. Stay tuned for more details about our festivals, community gatherings, and special ceremonies.</p>
             </div>
         </div>
     </div>
     <div class="content" id="contact">
-        <div class="section">
-            <img src="https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/174062267_2960061127610667_6175586575874149828_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=YJbdmHaTGQ4Q7kNvgFAL5rU&_nc_ht=scontent-lga3-2.xx&oh=00_AYCqStov9r6PiQYkUJKc7kb0a2AqOPxAYOUqjYL5_d1atA&oe=66DC6CAF" alt="Contact Us">
-            <div>
-                <h2>Contact Us</h2>
-                <p>Email: nfss.gurdwara@gmail.com | Phone: (709) 754-7454</p>
+        <div class="container mx-auto flex flex-wrap md:flex-nowrap bg-white shadow-md rounded-lg p-4 my-4">
+            <img class="w-full md:w-1/2 rounded-lg" src="https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/174062267_2960061127610667_6175586575874149828_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=YJbdmHaTGQ4Q7kNvgFAL5rU&_nc_ht=scontent-lga3-2.xx&oh=00_AYCqStov9r6PiQYkUJKc7kb0a2AqOPxAYOUqjYL5_d1atA&oe=66DC6CAF" alt="Contact Us">
+            <div class="w-full md:w-1/2 p-4">
+                <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+                <p>Email: nfss.gurdwara@gmail.com</p>
+                <p>Phone: (709) 754-7454</p>
                 <p>Address: 680 Logy Bay Rd, St. John's, Newfoundland and Labrador, NL, Canada</p>
             </div>
         </div>
     </div>
-    <footer>
+    <footer class="bg-blue-800 text-white p-2 text-center text-sm">
         <p>&copy; 2024 Newfoundland Sikh Temple. All rights reserved.</p>
     </footer>
 </body>
